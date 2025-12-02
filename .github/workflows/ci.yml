@@ -1,4 +1,4 @@
-name: ci - test
+name: ci
 
 on:
   pull_request:
@@ -144,9 +144,13 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - name: Install poetry
+        run: pipx install poetry
+
+      - uses: actions/setup-python@v6
         with:
             python-version: ${{ matrix.python-version }}
+            cache: "poetry"
 
       - name: Setup python env
         run: | 
@@ -159,8 +163,6 @@ jobs:
           apt-get install -y wget curl postgresql-client build-essential pkg-config libssl-dev git sqlite3 libsqlite3-dev mysql-client libmysqlclient-dev libkrb5-dev libclang-dev libffi-dev
         env:
           DEBIAN_FRONTEND: noninteractive
-
-      - uses: Gr1N/setup-poetry@v9
 
       - uses: extractions/setup-just@v3
 
