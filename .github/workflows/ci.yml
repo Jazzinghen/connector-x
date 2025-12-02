@@ -109,7 +109,6 @@ jobs:
 
   python:
     runs-on: ubuntu-latest
-    container: ubuntu:24.04
     strategy:
       matrix:
         python-version: ["3.14"]
