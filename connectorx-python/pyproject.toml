@@ -34,7 +34,7 @@ Issues = "https://github.com/sfu-db/connector-x/issues"
 Documentation = "https://sfu-db.github.io/connector-x/intro.html"
 
 [tool.poetry.dependencies]
-dask = {version = "^2021", optional = true, extras = ["dataframe"]}
+dask = {version = "^2025", optional = true, extras = ["dataframe"]}
 modin = {version = ">=0.10", optional = true}
 numpy = ">=2.1"
 pandas = {version = ">=2", optional = true}
@@ -53,19 +53,19 @@ pyarrow = ["pyarrow"]
 [tool.poetry.group.dev.dependencies]
 black = "^21.4b0"
 contexttimer = "^0.3.3"
-dask = {extras = ["dataframe"], version = "^2021.7.0"}
+dask = {extras = ["dataframe"], version = "^2025.11"}
 docopt = "^0.6.2"
-ipython = "^7.31.1"
+ipython = "*"
 maturin = ">=1.0,<2.0"
 modin = {extras = ["dask"], version = ">=0.10.1"}
 polars = ">=0.20"
 pyarrow = ">=22"
-pytest = "^6.2"
-pytest-benchmark = "^3.4.1"
-twine = "^3.4.1"
+pytest = "^9.0"
+pytest-benchmark = "^5.2"
+twine = "^6.2"
 
 [tool.pytest.ini_options]
-minversion = "6.0"
+minversion = "9.0"
 python_functions = "test_* bench_*"
 # python_files = check_*.py
 # python_classes = Check
