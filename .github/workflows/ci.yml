@@ -218,7 +218,7 @@ jobs:
       - name: Test python
         run: just test-python
         env:
-          POSTGRES_URL: "postgresql://postgres:postgres@postgres:5432/postgres"
+          POSTGRES_URL: "postgresql://postgres:postgres@localhost:5432/postgres"
           SQLITE_URL: "sqlite:///tmp/test.db"
-          MYSQL_URL: "mysql://root:mysql@mysql:3306/mysql"
+          MYSQL_URL: "mysql://root:mysql@localhost:3306/mysql"
           SQLITE3_STATIC: 1
