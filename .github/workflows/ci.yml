@@ -119,6 +119,8 @@ jobs:
         image: pgvector/pgvector:pg17
         env:
           POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
@@ -190,9 +192,9 @@ jobs:
       - name: Seed the database
         run: just seed-db
         env:
-          POSTGRES_URL: "postgresql://postgres:postgres@postgres:5432/postgres"
+          POSTGRES_URL: "postgresql://postgres:postgres@localhost:5432/postgres"
           SQLITE_URL: "sqlite:///tmp/test.db"
-          MYSQL_HOST: mysql
+          MYSQL_HOST: localhost
           MYSQL_PORT: 3306
           MYSQL_DB: mysql
           MYSQL_USER: root
